@@ -79,7 +79,8 @@ BotClient.on("messageCreate", (Message) => {
             .setTitle("Channel creation requested")
             .setURL(Message.url)
             .addFields(
-                {name: "Requested by:", value: `<@${author.id}>`}
+                {name: "Requested by:", value: `<@${author.id}>`},
+                {name: "requested at", value: Message.createdAt}
             )
         NewChannel.then((CreatedChannel) => {
             CreatedChannel.send({embeds: [NewEmbed]})
