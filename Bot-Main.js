@@ -47,7 +47,7 @@ BotClient.on("messageCreate", (Message) => {
     if (CommandString == "init") {
         QLog("start")
         QLog()
-        var EditLog = ""
+        var EditLog = "```\n"
         Message.reply("init'ing")
         QLog("start")
         QLog()
@@ -55,7 +55,7 @@ BotClient.on("messageCreate", (Message) => {
         const Channels = guild.channels.cache.filter()
         QLog()
 
-        for (var Channel of channels) {
+        for (var Channel of Channels) {
             QLog()
             if (!Channel.id == Message.channel.id) {
                 QLog()
