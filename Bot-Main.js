@@ -53,6 +53,9 @@ BotClient.on("messageCreate", (Message) => {
         QLog()
 
         const Channels = guild.channels.cache.forEach((abc) => {
+            if (abc.id == Message.channel.id) {
+                continue
+            }
            EditLog.concat(`\n Delete: ${abc.name}; ${abc.id}`)
            abc.delete()
 
@@ -65,6 +68,13 @@ BotClient.on("messageCreate", (Message) => {
 
 
 
+    }
+
+    if (CommandString == "makechannel") {
+        const NewChannel = Message.guild.channels.create(`${author.name}`, {reason: "because"})
+        NewChannel.then((CreatedChannel) => {
+            CreatedChannel.send(Message.author.String())
+        })
     }
 
 
