@@ -31,6 +31,7 @@ function QLog(LogMessage) {
 }
 
 BotClient.on("messageCreate", (Message) => {
+    QLog(`work you better; ${Message.content}`)
    const {content, author, bot, guild, reply} = Message
    if (bot || !content.startsWith(BotChar)) {
        QLog(`stopping because of either  bot:${bot} or msg:${!content.startsWith(BotChar)}`)
