@@ -1,8 +1,38 @@
 {
+  "name": "pi-ed",
+  "version": "1.0.0",
+  "description": "My Discord bot, with many planned features.",
+  "main": "start.js",
   "dependencies": {
-    "discord.js": "^13.6.0"
+    "combined-stream": "^1.0.8",
+    "delayed-stream": "^1.0.0",
+    "discord.js": "^13.6.0",
+    "asynckit": "^0.4.0",
+    "discord-api-types": "^0.26.1",
+    "mime-db": "^1.51.0",
+    "form-data": "^4.0.0",
+    "mime-types": "^2.1.34",
+    "ts-mixer": "^6.0.0",
+    "tr46": "^0.0.3",
+    "node-fetch": "^2.6.7",
+    "webidl-conversions": "^3.0.1",
+    "tslib": "^2.3.1",
+    "ws": "^8.4.2",
+    "zod": "^3.11.6",
+    "whatwg-url": "^5.0.0"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LieingDarkScripts/Pi-ed.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LieingDarkScripts/Pi-ed.js/issues"
+  },
+  "homepage": "https://github.com/LieingDarkScripts/Pi-ed.js#readme"
 }
