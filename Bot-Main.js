@@ -109,4 +109,6 @@ QLog("Set message create")
 
 BotClient.login(BotToken)
 
+QLog("test")
+
 QLog(`Logged in, with token of: ${BotToken}`)
