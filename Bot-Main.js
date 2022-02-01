@@ -53,7 +53,7 @@ BotClient.on("messageCreate", (Message) => {
         QLog()
 
         const Channels = guild.channels.cache.filter()
-        QLog()
+        QLog("beginning")
 
         for (var Channel of Channels) {
             QLog()
