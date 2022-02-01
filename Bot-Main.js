@@ -40,7 +40,7 @@ BotClient.on("messageCreate", (Message) => {
    const CommandString = content.substring(1)
 
    if (CommandString == "ping") {
-       reply("PONG!")
+        Message.reply("PONG!")
    }
 
 
