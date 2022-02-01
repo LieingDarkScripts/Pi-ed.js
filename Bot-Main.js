@@ -37,14 +37,21 @@ QLog(BotToken)
 
 
 BotClient.on("messageCreate", (Message) => {
+    QLog("Message created")
+    QLog("Message:")
+    QLog(Message)
+    QLog(Message.content)
     if (Message.author.bot) {
+        QLog("removing because of bot")
         return
     }
 
-    const {Auther, Content} = Message
+    const {Auther, content} = Message
 
     if (Content == "ping") {
+        QLog("message was ping :D")
         Message.reply("pong")
+        QLog("message should have replied")
     }
 })
 
