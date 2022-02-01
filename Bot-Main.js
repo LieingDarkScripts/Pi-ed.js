@@ -80,7 +80,7 @@ BotClient.on("messageCreate", (Message) => {
             .setURL(Message.url)
             .addFields(
                 {name: "Requested by:", value: `<@${author.id}>`},
-                {name: "requested at", value: Message.createdAt}
+                {name: "requested at", value: `at ${Message.createdAt.getDate()}`}
             )
         NewChannel.then((CreatedChannel) => {
             CreatedChannel.send({embeds: [NewEmbed]})
