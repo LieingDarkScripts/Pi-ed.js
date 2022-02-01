@@ -42,24 +42,34 @@ BotClient.on("messageCreate", (Message) => {
    if (CommandString == "ping") {
         Message.reply("PONG!")
    }
+   QLog("start")
+   QLog()
 
    var EditLog = "````\n"
 
    if (CommandString == "init") {
+    var EditLog = "````\n"
        Message.reply("init'ing")
+       QLog("start")
+   QLog()
 
        const Channels = guild.channels.cache.filter()
+       QLog()
 
        for (var Channel of channels) {
+           QLog()
            if (!Channel.id == Message.channel.id) {
+               QLog()
             EditLog.concat(`\nDelete: ${Channel.name}`)
+            QLog()
             Channel.delete()
+            QLog()
            }
             
        }
-
+    QLog()
        EditLog.concat("\n```")
-
+       QLog()
        Message.reply(EditLog)
 
 
