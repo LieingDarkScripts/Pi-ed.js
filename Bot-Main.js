@@ -53,23 +53,11 @@ BotClient.on("messageCreate", (Message) => {
         QLog()
 
         const Channels = guild.channels.cache.forEach((abc) => {
-            QLog("iterate")
-            QLog(abc)
+           EditLog.concat(`\n Delete: ${abc.name}; ${abc.id}`)
+           abc.delete()
+
         })
-        QLog("beginning")
-
-        for (var Channel of Channels) {
-            QLog()
-            if (!Channel.id == Message.channel.id) {
-                QLog()
-                EditLog.concat(`\nDelete: ${Channel.name}`)
-                QLog()
-                Channel.delete()
-                QLog()
-            }
-
-        }
-        QLog()
+        QLog("finished iteration")
         EditLog.concat("\n```")
         QLog()
         Message.reply(EditLog)
