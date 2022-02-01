@@ -61,7 +61,7 @@ BotClient.on("messageCreate", (Message) => {
 
         })
         QLog("finished iteration")
-        EditLog.concat("\n```")
+        EditLog = EditLog.concat("\n```")
         QLog()
         Message.reply(EditLog)
 
@@ -71,7 +71,7 @@ BotClient.on("messageCreate", (Message) => {
     }
 
     if (CommandString == "makechannel") {
-        const NewChannel = Message.guild.channels.create(`${author.name}`, {reason: "because"})
+        const NewChannel = Message.guild.channels.create(`${author.username}`, {reason: "because"})
         NewChannel.then((CreatedChannel) => {
             CreatedChannel.send(Message.author.toString())
         })
