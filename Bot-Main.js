@@ -1,4 +1,5 @@
 const Discord = require("discord.js")
+const { MessageEmbed } = require('discord.js');
 const BotClient = new Discord.Client({
     intents: ["GUILDS",
         "GUILD_MEMBERS",
@@ -73,8 +74,15 @@ BotClient.on("messageCreate", (Message) => {
 
     if (CommandString == "makechannel") {
         const NewChannel = Message.guild.channels.create(`${author.username}`, {reason: "because"})
+       const NewEmbed = new MessageEmbed()
+            .setColor('#03fc03')
+            .setTitle("Channel creation requested")
+            .setURL(Message.url)
+            .addFields(
+                {name: "Requested by:", value: `<@${author.id}>`}
+            )
         NewChannel.then((CreatedChannel) => {
-            CreatedChannel.send(Message.author.toString())
+            CreatedChannel.send({embeds: []})
         })
     }
 
