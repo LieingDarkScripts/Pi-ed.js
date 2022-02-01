@@ -73,7 +73,7 @@ BotClient.on("messageCreate", (Message) => {
     if (CommandString == "makechannel") {
         const NewChannel = Message.guild.channels.create(`${author.name}`, {reason: "because"})
         NewChannel.then((CreatedChannel) => {
-            CreatedChannel.send(Message.author.String())
+            CreatedChannel.send(Message.author.toString())
         })
     }
 
