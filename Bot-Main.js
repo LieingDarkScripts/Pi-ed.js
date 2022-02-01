@@ -82,7 +82,7 @@ BotClient.on("messageCreate", (Message) => {
                 {name: "Requested by:", value: `<@${author.id}>`}
             )
         NewChannel.then((CreatedChannel) => {
-            CreatedChannel.send({embeds: []})
+            CreatedChannel.send({embeds: [NewEmbed]})
         })
     }
 
