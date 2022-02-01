@@ -47,7 +47,7 @@ BotClient.on("messageCreate", (Message) => {
     if (CommandString == "init") {
         QLog("start")
         QLog()
-        var EditLog = "````\n"
+        var EditLog = ""
         Message.reply("init'ing")
         QLog("start")
         QLog()
