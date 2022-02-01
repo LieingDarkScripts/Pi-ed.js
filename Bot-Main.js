@@ -19,7 +19,7 @@ const BotClient = new Discord.Client({
     ]
 })
 
-const {BotToken} = process.env
+const { BotToken } = process.env
 const BotChar = "!"
 
 var LogCount = 1
@@ -31,51 +31,50 @@ function QLog(LogMessage) {
 
 BotClient.on("messageCreate", (Message) => {
     QLog(`work you better; ${Message.content}`)
-   const {content, author, bot, guild, reply} = Message
-   if (bot || !content.startsWith(BotChar)) {
-       QLog(`stopping because of either  bot:${bot} or msg:${!content.startsWith(BotChar)}`)
-       return
-   }
+    const { content, author, bot, guild, reply } = Message
+    if (bot || !content.startsWith(BotChar)) {
+        QLog(`stopping because of either  bot:${bot} or msg:${!content.startsWith(BotChar)}`)
+        return
+    }
 
-   const CommandString = content.substring(1)
+    const CommandString = content.substring(1)
 
-   if (CommandString == "ping") {
+    if (CommandString == "ping") {
         Message.reply("PONG!")
-   }
-   QLog("start")
-   QLog()
+    }
+   
 
-   var EditLog = "````\n"
+    if (CommandString == "init") {
+        QLog("start")
+        QLog()
+        var EditLog = "````\n"
+        Message.reply("init'ing")
+        QLog("start")
+        QLog()
 
-   if (CommandString == "init") {
-    var EditLog = "````\n"
-       Message.reply("init'ing")
-       QLog("start")
-   QLog()
+        const Channels = guild.channels.cache.filter()
+        QLog()
 
-       const Channels = guild.channels.cache.filter()
-       QLog()
-
-       for (var Channel of channels) {
-           QLog()
-           if (!Channel.id == Message.channel.id) {
-               QLog()
-            EditLog.concat(`\nDelete: ${Channel.name}`)
+        for (var Channel of channels) {
             QLog()
-            Channel.delete()
-            QLog()
-           }
-            
-       }
-    QLog()
-       EditLog.concat("\n```")
-       QLog()
-       Message.reply(EditLog)
+            if (!Channel.id == Message.channel.id) {
+                QLog()
+                EditLog.concat(`\nDelete: ${Channel.name}`)
+                QLog()
+                Channel.delete()
+                QLog()
+            }
+
+        }
+        QLog()
+        EditLog.concat("\n```")
+        QLog()
+        Message.reply(EditLog)
 
 
 
 
-   }
+    }
 
 
 
@@ -94,7 +93,7 @@ BotClient.on("messageCreate", (Message) => {
         return
     }
 
-    const {Auther, content} = Message
+    const { Auther, content } = Message
 
 
 
