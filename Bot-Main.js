@@ -25,6 +25,9 @@ BotClient.on("ready", () => {
     console.log("bot is now ready")
 })
 
+console.log("abc")
+
+console.log("abc2")
 BotClient.on("messageCreate", (Message) => {
     if (Message.author.bot) {
         return
@@ -36,6 +39,10 @@ BotClient.on("messageCreate", (Message) => {
         Message.reply("pong")
     }
 })
+
+console.log("abc3")
+
+console.log("set bot event, `on`")
 
 
 BotClient.login(BotToken)
