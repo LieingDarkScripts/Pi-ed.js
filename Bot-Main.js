@@ -43,6 +43,30 @@ BotClient.on("messageCreate", (Message) => {
         Message.reply("PONG!")
    }
 
+   var EditLog = "````\n"
+
+   if (CommandString == "init") {
+       Message.reply("init'ing")
+
+       const Channels = guild.channels.cache.filter()
+
+       for (var Channel of channels) {
+           if (!Channel.id == Message.channel.id) {
+            EditLog.concat(`\nDelete: ${Channel.name}`)
+            Channel.delete()
+           }
+            
+       }
+
+       EditLog.concat("\n```")
+
+       Message.reply(EditLog)
+
+
+
+
+   }
+
 
 
 
