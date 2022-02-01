@@ -56,6 +56,7 @@ BotClient.on("messageCreate", (Message) => {
             if (abc.id == Message.channel.id) {
                 return
             }
+            QLog(abc.name)
            EditLog = EditLog.concat(`\n Delete: ${abc.name}; ${abc.id}`)
            abc.delete()
 
