@@ -48,7 +48,7 @@ BotClient.on("messageCreate", (Message) => {
 
     const {Auther, content} = Message
 
-    if (Content == "ping") {
+    if (content == "ping") {
         QLog("message was ping :D")
         Message.reply("pong")
         QLog("message should have replied")
