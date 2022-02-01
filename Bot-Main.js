@@ -21,13 +21,21 @@ const BotClient = new Discord.Client({
 
 const {BotToken} = process.env
 
+var LogCount = 1
+
+function QLog(LogMessage) {
+    console.log(`Log: ${LogCount}; Message: ${LogMessage}`)
+    LogCount += 1
+}
+
+
 BotClient.on("ready", () => {
-    console.log("bot is now ready")
+    QLog("Bot is now ready")
 })
 
-console.log("abc")
+QLog(BotToken)
 
-console.log("abc2")
+
 BotClient.on("messageCreate", (Message) => {
     if (Message.author.bot) {
         return
@@ -40,9 +48,10 @@ BotClient.on("messageCreate", (Message) => {
     }
 })
 
-console.log("abc3")
+QLog("Set message create")
 
-console.log("set bot event, `on`")
 
 
 BotClient.login(BotToken)
+
+QLog(`Logged in, with token of: ${BotToken}`)
