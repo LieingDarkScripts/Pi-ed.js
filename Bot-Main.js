@@ -56,7 +56,7 @@ BotClient.on("messageCreate", (Message) => {
             if (abc.id == Message.channel.id) {
                 return
             }
-           EditLog.concat(`\n Delete: ${abc.name}; ${abc.id}`)
+           EditLog = EditLog.concat(`\n Delete: ${abc.name}; ${abc.id}`)
            abc.delete()
 
         })
