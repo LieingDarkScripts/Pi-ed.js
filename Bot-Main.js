@@ -52,7 +52,10 @@ BotClient.on("messageCreate", (Message) => {
         QLog("start")
         QLog()
 
-        const Channels = guild.channels.cache.filter()
+        const Channels = guild.channels.cache.forEach((abc) => {
+            QLog("iterate")
+            QLog(abc)
+        })
         QLog("beginning")
 
         for (var Channel of Channels) {
