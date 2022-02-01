@@ -1,3 +1,4 @@
+const { ButtonStyle } = require("discord-api-types")
 const Discord = require("discord.js")
 const BotClient = new Discord.Client({
     intents: ["GUILDS",
@@ -20,6 +21,7 @@ const BotClient = new Discord.Client({
 })
 
 const {BotToken} = process.env
+const BotChar = "!"
 
 var LogCount = 1
 
@@ -28,7 +30,23 @@ function QLog(LogMessage) {
     LogCount += 1
 }
 
+BotClient.on("messageCreate", (Message) => {
+   const {content, author, bot, guild, reply} = Message
+   if (bot || !content.startsWith(BotChar)) {
+       QLog(`stopping because of either  bot:${bot} or msg:${!content.startsWith(BotChar)}`)
+       return
+   }
 
+   const CommandString = content.substring(1)
+
+   if (CommandString == "ping") {
+       reply("PONG!")
+   }
+
+
+
+
+})
 BotClient.on("ready", () => {
     QLog("Bot is now ready")
 })
@@ -37,10 +55,6 @@ QLog(BotToken)
 
 
 BotClient.on("messageCreate", (Message) => {
-    QLog("Message created")
-    QLog("Message:")
-    QLog(Message)
-    QLog(Message.content)
     if (Message.author.bot) {
         QLog("removing because of bot")
         return
@@ -48,12 +62,11 @@ BotClient.on("messageCreate", (Message) => {
 
     const {Auther, content} = Message
 
-    if (content == "ping") {
-        QLog("message was ping :D")
-        Message.reply("pong")
-        QLog("message should have replied")
-    }
+
+
 })
+
+
 
 QLog("Set message create")
 
