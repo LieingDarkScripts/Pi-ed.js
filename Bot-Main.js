@@ -54,7 +54,7 @@ BotClient.on("messageCreate", (Message) => {
 
         const Channels = guild.channels.cache.forEach((abc) => {
             if (abc.id == Message.channel.id) {
-                continue
+                return
             }
            EditLog.concat(`\n Delete: ${abc.name}; ${abc.id}`)
            abc.delete()
