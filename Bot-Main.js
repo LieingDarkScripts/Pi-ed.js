@@ -87,6 +87,14 @@ BotClient.on("messageCreate", (Message) => {
         })
     }
 
+    if (CommandString == "break") {
+        null.null = null
+    }
+
+    if (CommandString == "getstr") {
+        Message.reply(author.flags.toString())
+    }
+
 
 
 
