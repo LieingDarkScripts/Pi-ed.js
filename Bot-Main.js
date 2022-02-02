@@ -90,9 +90,10 @@ BotClient.on("messageCreate", (Message) => {
     if (CommandString == "break") {
         null.null = null
     }
-
+    console.log(CommandString == "getstr")
     if (CommandString == "getstr") {
-        Message.reply(author.flags.toString())
+       const flags = author.flags.toArray().toString()
+       Message.reply(flags)
     }
 
 
