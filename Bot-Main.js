@@ -92,8 +92,12 @@ BotClient.on("messageCreate", (Message) => {
     }
     console.log(CommandString == "getstr")
     if (CommandString == "getstr") {
-       const flags = author.flags.toArray().toString()
-       Message.reply(flags)
+       var flags = `\`\`\`\n ${author.username.toUpperCase()} FLAGS:\n` // 2 "\n" on purpose (would reslt in 2, next one also starts with "\n")
+        author.flags.toArray().forEach((flagstr) => {
+            flags += `\n    FLAG: ${flagstr}`
+        })
+
+        Message.reply(CommandString)
     }
 
 
