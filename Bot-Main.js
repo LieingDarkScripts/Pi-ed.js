@@ -93,10 +93,12 @@ BotClient.on("messageCreate", (Message) => {
     console.log(CommandString == "getstr")
     if (CommandString == "getstr") {
        var flags = `\`\`\`\n ${author.username.toUpperCase()} FLAGS:\n` // 2 "\n" on purpose (would reslt in 2, next one also starts with "\n")
-        author.flags.toArray().forEach((flagstr) => {
-            flags += `\n    FLAG: ${flagstr}` //
-        })
-
+        const Member = await guild.members.fetch(author)
+        const MemberCount = Member.permissions.toArray().length
+       Member.permissions.toArray().forEach((FlagString, Index) => {
+           flags += `\n     FLAG: ${FlagString}${(!Index == MemberCount) & "," || ""}`
+       })
+        flags += "```"
         Message.reply(flags)
     }
 
