@@ -97,7 +97,7 @@ BotClient.on("messageCreate", (Message) => {
             flags += `\n    FLAG: ${flagstr}` //
         })
 
-        Message.reply(CommandString)
+        Message.reply(flags)
     }
 
 
