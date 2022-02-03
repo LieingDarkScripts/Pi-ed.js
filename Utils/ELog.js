@@ -1,25 +1,26 @@
 // ELog or ExtraLog
 
-modules.exports = (LogName, Callback, CallbackOnly) => {
-    var CurrentLog = 1;
+module.exports = (LogName, CallBack, CallBackOnly)  => {
+    var LogCount = 1
+
     return (LogMessage) => {
-        const Message = `(${LogName || ""}) LOG: ${CurrentLog}; MESSAGE: ${LogMessage || "Message not defined"}`;
-        switch(Callback) {
-            case undefined || null : 
-                console.log(Message);
-                break;
-            default:
-                switch(CallbackOnly) {
-                    case undefined || true :
-                        Callback(Message);
-                        break;
-                    default: // false
-                        Callback(Message);
-                        console.log(Message);
-                        break;
+        const Log = `${LogName && `(${LogName}): `}LOG: ${LogCount}; ` +  LogMessage || `undefined`
+        LogCount += 1
+        switch(CallBack) { 
+            case undefined: 
+                console.log(Log)
+                break
+            default: // Existance
+                switch(CallBackOnly) {
+                    case true:
+                    case undefined:
+                        return CallBack(Log) 
+                    default: // false ? 
+                        console.log(Log)
+                        return CallBack(Log)
                 }
-                break;
         }
-        CurrentLog += 1
+
+       
     }
 }
