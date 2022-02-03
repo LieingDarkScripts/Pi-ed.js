@@ -1,0 +1,4 @@
+# What is this?
+
+This is an area which I plan to put utils. These will include utilites, for example, a promise status(at least some what like it). This is a function which returns a init function. The arguments contain data on the functions that would be rain to see their status. These would be rain numericaly one after another. I would think with my current knowledge of "promises" they the functions inputed in the function are promises. You wait for a status on the promise, success, error ect. After each function it would update the embed(return one?) to show that function completed. so farth after each function is completed. if any errors occur, it catches that error, and creates an embed to return showing that it stopped.  it would lead to a channel showing the message or just the error.
+
