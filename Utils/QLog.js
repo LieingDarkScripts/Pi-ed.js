@@ -1,11 +1,9 @@
-const { DefaultUserAgent } = require("@discordjs/rest");
-
-module.exports = (Callback, CallBackOnly) => {
+module.exports = function abcd (Callback, CallBackOnly) {
     var CurrentLogCount = 1
 
     return (LogMessage) => {
         const Message = `LOG: ${CurrentLogCount}; LOGMESSAGE: ${LogMessage || "no log message"}`
-        switch(CallBackOnly) {
+        switch(Callback) {
             case undefined: // Likely one
                 console.log(Message);
                 break;
